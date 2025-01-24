@@ -14,5 +14,8 @@
   },
   "dependencies": {
     "@shopify/storefront-api-client": "^1.0.4"
-  }
+  },
+  "files": [
+    "dist"
+  ]
 }
