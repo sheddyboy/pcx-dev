@@ -10,11 +10,13 @@ The main TypeScript file that handles the e-commerce functionality for the PCX M
 
 #### API Configuration
 
-- `publicAccessToken`: "92763ee4ca8842db0d48c64ad1ff8f9a"
+- `publicAccessToken`
   - Shopify Storefront API access token for authentication
-- `storeDomain`: "http://pcxmarkets.myshopify.com"
+  - Keep this value private and secure
+- `storeDomain`
   - Base domain for the Shopify store
-- `productId`: 8657611915514
+  - Your store's myshopify.com domain
+- `productId`
   - Main product ID used for fetching product data
   - Contains both Clean By The Ton and Personal Annual Footprint variants
 
@@ -25,13 +27,13 @@ The main TypeScript file that handles the e-commerce functionality for the PCX M
   - Base KG Value: 1000
   - Base LBS Value: 2200
   - Base Bottles Value: 66000
-  - Variant ID: "46856212807930"
+  - Variant ID: Contact development team
 
 - Personal Annual Footprint:
   - Base KG Value: 220
   - Base LBS Value: 485
   - Base Bottles Value: 4400
-  - Variant ID: "46856212775162"
+  - Variant ID: Contact development team
 
 ### Key Features
 
