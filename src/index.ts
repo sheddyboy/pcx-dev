@@ -277,7 +277,7 @@ document.addEventListener("DOMContentLoaded", async () => {
     if (!isGift) {
       console.log("Not a gift");
       const customProperties: Record<string, string> = {
-        IsGift: "false",
+        _isGift: "false",
       };
       const attributes = Object.keys(customProperties).map((key) => ({
         key,
@@ -294,10 +294,10 @@ document.addEventListener("DOMContentLoaded", async () => {
     } else {
       console.log("Is a gift");
       const customProperties: Record<string, string> = {
-        IsGift: "true",
-        GiftRecipientName: isGiftName ?? "",
-        GiftRecipientEmail: isGiftEmail ?? "",
-        GiftRecipientMessage: isGiftMessage ?? "",
+        _isGift: "true",
+        "Gift Recipient Name": isGiftName ?? "",
+        "Gift Recipient Email": isGiftEmail ?? "",
+        "Gift Recipient Message": isGiftMessage ?? "",
       };
       const attributes = Object.keys(customProperties).map((key) => ({
         key,
