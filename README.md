@@ -51,28 +51,41 @@ Note:
 
 ### Production Deployment
 
-For production deployment in Webflow, replace the development script tags with the CDN-hosted production version:
+Follow these steps for production deployment:
 
-```html
-<script
-  type="module"
-  src="https://cdn.jsdelivr.net/gh/BX-Studio-Webflow/pcx@latest/dist/index.js"
-></script>
-```
+1. Build the production version:
 
-Note:
+   ```bash
+   pnpm build
+   ```
 
-- Replace `@latest` with a specific commit hash (e.g., `@b76d9a7`) for better version control
+2. Commit and push your changes to GitHub:
+
+   ```bash
+   git add .
+   git commit -m "build: add your commit message here"
+   git push
+   ```
+
+3. Get the latest commit hash from GitHub (it will look something like `b76d9a7`)
+
+4. Update the script tag in Webflow with the new commit hash:
+   ```html
+   <script
+     type="module"
+     src="https://cdn.jsdelivr.net/gh/BX-Studio-Webflow/pcx@YOUR_COMMIT_HASH/dist/index.js"
+   ></script>
+   ```
+
+Important Notes:
+
+- Always build before pushing to ensure the latest changes are compiled
+- Replace `YOUR_COMMIT_HASH` with the actual commit hash from step 3
 - The script should be added in the Webflow Designer under Page Settings > Custom Code > Footer Code
 - Using a specific commit hash is recommended for production to ensure stability
+- Never use `@latest` in production as it may lead to unexpected behavior
 
-Build for production:
-
-```bash
-pnpm build
-```
-
-Preview production build:
+You can preview the production build locally before deploying:
 
 ```bash
 pnpm preview
