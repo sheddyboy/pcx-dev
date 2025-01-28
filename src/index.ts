@@ -179,6 +179,7 @@ document.addEventListener("DOMContentLoaded", async () => {
           cartId: cart.id,
         });
         console.log({ checkoutUrl });
+        checkoutButton.classList.remove("disabled");
         window.location.href = checkoutUrl;
       } catch (error) {
         checkoutButton.classList.remove("disabled");
