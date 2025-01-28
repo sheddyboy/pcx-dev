@@ -53,19 +53,19 @@ Note:
 
 Follow these steps for production deployment:
 
-1. Build the production version:
-
-   ```bash
-   pnpm build
-   ```
-
-2. Commit and push your changes to GitHub:
+1. Commit and push your changes to GitHub:
 
    ```bash
    git add .
-   git commit -m "build: add your commit message here"
+   git commit -m "feat: add your commit message here"
    git push
    ```
+
+2. Wait for the GitHub Actions workflow to complete:
+
+   - The workflow automatically builds the project when changes are pushed
+   - You can check the build status in the Actions tab of your GitHub repository
+   - A successful build will create the production files in the `dist` directory
 
 3. Get the latest commit hash from GitHub (it will look something like `b76d9a7`)
 
@@ -79,7 +79,7 @@ Follow these steps for production deployment:
 
 Important Notes:
 
-- Always build before pushing to ensure the latest changes are compiled
+- The build process is automated through GitHub Actions - no need to build locally
 - Replace `YOUR_COMMIT_HASH` with the actual commit hash from step 3
 - The script should be added in the Webflow Designer under Page Settings > Custom Code > Footer Code
 - Using a specific commit hash is recommended for production to ensure stability
