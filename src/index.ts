@@ -120,8 +120,8 @@ document.addEventListener("DOMContentLoaded", async () => {
   ) {
     window.location.reload();
   }
-  console.log({ storefrontClient });
-  console.log({ fetchedProduct });
+  // console.log({ storefrontClient });
+  // console.log({ fetchedProduct });
 
   function setPricesAndName({
     fetchedProduct,
@@ -173,12 +173,12 @@ document.addEventListener("DOMContentLoaded", async () => {
           ],
           lineItems: lineItemsToAdd.getPureItems(),
         });
-        console.log({ cart });
+        // console.log({ cart });
         const { checkoutUrl } = await getCartWebUrl({
           storefrontClient,
           cartId: cart.id,
         });
-        console.log({ checkoutUrl });
+        // console.log({ checkoutUrl });
         checkoutButton.classList.remove("disabled");
         window.location.href = checkoutUrl;
       } catch (error) {
@@ -273,10 +273,10 @@ document.addEventListener("DOMContentLoaded", async () => {
       ({ node: { id } }) => id === merchandiseId
     );
     if (!currentVariant) return console.error("currentVariant not found");
-    console.log({ currentVariant });
+    // console.log({ currentVariant });
 
     if (!isGift) {
-      console.log("Not a gift");
+      // console.log("Not a gift");
       const customProperties: Record<string, string> = {
         _isGift: "false",
       };
@@ -293,7 +293,7 @@ document.addEventListener("DOMContentLoaded", async () => {
         attributes,
       });
     } else {
-      console.log("Is a gift");
+      // console.log("Is a gift");
       const customProperties: Record<string, string> = {
         _isGift: "true",
         "Gift Recipient Name": isGiftName ?? "",
@@ -763,7 +763,7 @@ document.addEventListener("DOMContentLoaded", async () => {
     }[];
   }) {
     try {
-      console.log({ attributes, lineItems });
+      // console.log({ attributes, lineItems });
       const createCartMutation = `#graphql
         mutation cartCreate($input: CartInput!) {
           cartCreate(input: $input) {
@@ -808,14 +808,14 @@ document.addEventListener("DOMContentLoaded", async () => {
           },
         });
 
-      console.log({ createCartResponse });
+      // console.log({ createCartResponse });
 
       const cart = createCartResponse.data?.cartCreate.cart;
       if (!cart) {
         throw new Error("Error creating cart");
       }
 
-      console.log("Cart created:", cart);
+      // console.log("Cart created:", cart);
 
       return cart;
     } catch (error) {
@@ -867,13 +867,13 @@ document.addEventListener("DOMContentLoaded", async () => {
           },
         }
       );
-      console.log({ response });
+      // console.log({ response });
 
       if (!response.data) {
         console.error("Product not found for id:", productId);
         throw response.errors;
       }
-      console.log("Fetched product with variants:", response.data);
+      // console.log("Fetched product with variants:", response.data);
       return response.data;
     } catch (error) {
       console.error("Error fetching product:", error);
@@ -921,14 +921,14 @@ document.addEventListener("DOMContentLoaded", async () => {
           variables,
         }
       );
-      console.log({ data });
+      // console.log({ data });
 
       if (!data) {
         console.error("Errors fetching cart:", errors);
         throw errors;
       }
 
-      console.log("Cart Web URL:", data.cart.checkoutUrl);
+      // console.log("Cart Web URL:", data.cart.checkoutUrl);
       return { checkoutUrl: data.cart.checkoutUrl };
     } catch (error) {
       console.error("Error fetching cart details:", error);
