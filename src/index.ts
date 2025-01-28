@@ -68,7 +68,7 @@ document.addEventListener("DOMContentLoaded", async () => {
     "[dev-target=checkout]"
   )!;
   const subTotal = document.querySelector("[dev-target=sub-total]")!;
-  let cartCheckbox = false;
+  let cartCheckbox = true;
 
   const buyButtons = document.querySelectorAll<HTMLDivElement>(
     ".js-shopify-buy-now"
